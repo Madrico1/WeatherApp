@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' >
+    <script src="https://kit.fontawesome.com/9d24efd7ff.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/main.css">
+    <title>WeatherApp</title>
+</head>
+<body>
+    <div class="container">
+        <form action="/search" method="post">
+            <h1>WeatherApp</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Enter Your Location" name="cityName">
+                <button type="submit" class="btn fa-solid fa-magnifying-glass"></button>
+            </div>
+            <div class="notFound">
+                <img src="styles/404.jpg" alt="error404">
+            </div>
+            <% if (city !== "" ,icon !== ""){%>
+            <div class="temperature-container">
+                <h2><%= city %></h2>
+                <p><span><%= temp %> °C</span></p>
+                <img src="<%= icon %>" alt="icon">
+            </div>
+            <% } %>
+            <div class="weather-container">
+                <% if (humidity !== "") { %>
+                <div class="humidity">
+                    <i class="fa-solid fa-water"></i>
+                    <div class="text">
+                        <p>Humidity</p>
+                        <p><span><%= humidity %> %</span></p>
+                    </div>  
+                </div>
+                <% } %>
+                <% if (wind !== "") { %>  
+                <div class="wind">
+                    <i class="fa-solid fa-wind"></i>
+                    <div class="text">
+                        <p>Wind Speed</p>
+                        <p><span><%= wind %> km/h</span></p>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>
